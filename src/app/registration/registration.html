@@ -1,0 +1,82 @@
+<div class="container full-width">
+  <form
+    class="form"
+    #registrierungsForm="ngForm"
+    (ngSubmit)="onSubmit(registrierungsForm, $event)"
+  >
+    <h1 class="form-header">Registration</h1>
+    <mat-form-field>
+      <mat-label for="name">Vorname</mat-label>
+      <input matInput name="name" id="name" required ngModel />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="nachName">Nachname</mat-label>
+      <input matInput name="nachName" id="nachName" required ngModel />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="email">E-Mail</mat-label>
+      <input matInput name="email" id="emal" email required ngModel />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="passwort">Passwort</mat-label>
+      <input
+        matInput
+        name="passwort"
+        id="passwort"
+        [type]="isPasswortShow() ? 'text' : 'password'"
+        ngModel
+        required
+      />
+      <button
+        class="visibility-toggle"
+        type="button"
+        (click)="this.isPasswortShow.set(!this.isPasswortShow())"
+      >
+        <mat-icon>
+          {{isPasswortShow() ? 'visibility' : 'visibility_off'}}
+        </mat-icon>
+      </button>
+      @if (!isPasswortValid()) {
+      <mat-hint class="warn-hint"
+        >Passwort und Passwortwiederholung sind nicht gleich!</mat-hint
+      >
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="passwortWiederholung">Passwortwiederholung</mat-label>
+      <input
+        matInput
+        name="passwortWiederholung"
+        id="passwortWiederholung"
+        [type]="isPasswortWiederholungShow() ? 'text' : 'password'"
+        ngModel
+        required
+      />
+      <button
+        class="visibility-toggle"
+        type="button"
+        (click)="this.isPasswortWiederholungShow.set(!this.isPasswortWiederholungShow())"
+      >
+        <mat-icon>
+          {{isPasswortWiederholungShow() ? 'visibility' : 'visibility_off'}}
+        </mat-icon>
+      </button>
+      @if (!isPasswortValid()) {
+      <mat-hint class="warn-hint"
+        >Passwort und Passwortwiederholung sind nicht gleich!</mat-hint
+      >
+      }
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Registrieren
+    </button>
+    <router-link class="acc" routerLink="/login"
+      >Ich habe schon ein Konto</router-link
+    >
+  </form>
+</div>

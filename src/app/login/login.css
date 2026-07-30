@@ -1,0 +1,46 @@
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  position: relative;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  padding: 50px 30px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  box-shadow: 0px 5px 10px #ccc;
+}
+
+.form-header {
+  margin: 0;
+  text-align: center;
+  font-size: 25px;
+}
+
+.visibility-toggle {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.no-acc {
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  left: 0;
+  margin: 0;
+  text-align: center;
+  color: blue;
+  cursor: pointer;
+}
+
+.warn-hint {
+  color: var(--mat-sys-error);
+}

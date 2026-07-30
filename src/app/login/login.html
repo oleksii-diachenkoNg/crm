@@ -1,0 +1,46 @@
+<div class="container full-width">
+  <form
+    class="form"
+    #loginForm="ngForm"
+    (ngSubmit)="onSubmit(loginForm, $event)"
+  >
+    <h1 class="form-header">Anmelden</h1>
+    <mat-form-field appearance="fill">
+      <mat-label for="login">Login</mat-label>
+      <input matInput name="login" id="login" ngModel required />
+
+      @if(isLoginTrue() === false){
+      <mat-hint class="warn-hint">Login ist falsch</mat-hint>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label for="passwort">Passwort</mat-label>
+      <input
+        matInput
+        name="passwort"
+        id="passwort"
+        [type]="isPasswordShow() ? 'text' : 'password'"
+        ngModel
+        required
+      />
+      <button
+        class="visibility-toggle"
+        type="button"
+        (click)="this.isPasswordShow.set(!this.isPasswordShow())"
+      >
+        <mat-icon>
+          {{isPasswordShow() ? 'visibility' : 'visibility_off'}}
+        </mat-icon>
+      </button>
+      @if(isPassword() === false){
+      <mat-hint class="warn-hint">Passwort ist falsch</mat-hint>
+      }
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Anmelden</button>
+    <router-link mat-link class="no-acc" routerLink="/registration">
+      Kostenlos ein Konto erstellen</router-link
+    >
+  </form>
+</div>
