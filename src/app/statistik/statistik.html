@@ -2,15 +2,62 @@
   <div class="canvas_content">
     <canvas #chartBarCanvas></canvas>
   </div>
-  <div class="canvas_form canvas_content">
-    <div>
-      <div class="block">
-        <p>Jahr</p>
-        <h1>2026</h1>
+  <div class="filter">
+    <div class="filter-buttons">
+      <button
+        class="filter-button filter-button_hover"
+        [class]="this.filterNach === 'jahr' ? 'active' : ''"
+        (click)="this.filterNach = 'jahr'"
+      >
+        Nach Jahr filtern
+      </button>
+      <button
+        class="filter-button filter-button_hover"
+        [class]="this.filterNach === 'monat' ? 'active' : ''"
+        (click)="this.filterNach = 'monat'"
+      >
+        Nach Monat filtern
+      </button>
+    </div>
+    <div class="filter-body">
+      <div class="filter-fields">
+        <mat-form-field class="filter-field">
+          <mat-label>Jahr</mat-label>
+          <mat-select>
+            <mat-option>---</mat-option>
+            @for (jahr of jahre; track jahr) {
+            <mat-option [value]="jahr">{{jahr}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        @if(this.filterNach === 'monat') {
+        <mat-form-field class="filter-field">
+          <mat-label>Monat</mat-label>
+          <mat-select>
+            <mat-option>---</mat-option>
+            @for (monat of monate; track monat) {
+            <mat-option [value]="monat">{{monat}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        }
       </div>
-      <div class="block">
-        <p>Monat</p>
-        <p>Januar</p>
+
+      <button class="akzeptieren filter-button_hover">
+        Filter akzeptieren
+      </button>
+
+      <div class="letzteEinstellungen">
+        <h3>Letzte Einstellungen:</h3>
+        <div class="letzteEinstellungen-data">
+          <p>Jahr: 2025</p>
+          @if(this.filterNach === 'monat') {
+          <p>Monat: Januar</p>
+          }
+          <button class="letzteEinstellungen-akzeptieren filter-button_hover">
+            Letzte Einstellungen akzeptieren
+          </button>
+        </div>
       </div>
     </div>
   </div>

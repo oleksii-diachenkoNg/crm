@@ -4,6 +4,7 @@
   gap: 30px;
 }
 
+.filter,
 .canvas .canvas_content {
   padding: 10px;
   border: 1px solid #ccc;
@@ -11,4 +12,77 @@
 
 canvas {
   max-width: 100%;
+}
+
+.filter-buttons {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  column-gap: 5px;
+}
+
+.filter-button {
+  font-size: 16px;
+  line-height: 130%;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #808080;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button_hover:hover {
+  background-color: rgba(78, 100, 224, 0.79);
+  border-color: rgba(78, 100, 224, 0.79);
+  color: #fff;
+}
+
+.filter-button.active {
+  background-color: #3f51b5;
+  border-color: #2d3a85;
+  color: #fff;
+}
+
+.filter-fields {
+  display: flex;
+  column-gap: 10px;
+}
+
+.filter-field {
+  width: 50%;
+}
+
+.akzeptieren {
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid #808080;
+  cursor: pointer;
+  background: none;
+}
+
+h3 {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.letzteEinstellungen-data {
+  display: flex;
+  column-gap: 30px;
+  font-size: 15px;
+}
+
+.letzteEinstellungen-akzeptieren {
+  font-size: 14px;
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #808080;
+  cursor: pointer;
+  background: none;
 }

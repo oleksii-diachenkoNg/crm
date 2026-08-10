@@ -2,12 +2,17 @@ import { Component, ElementRef, ViewChild, AfterViewInit, inject } from '@angula
 import { Chart, registerables } from 'chart.js';
 import { StatistischeDataService } from '../services/StatistischeData.service';
 
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 Chart.register(...registerables);
 
 
 @Component({
   selector: 'app-statistik',
-  imports: [],
+  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
   templateUrl: './statistik.html',
   styleUrl: './statistik.css',
 })
@@ -21,7 +26,6 @@ export class Statistik implements AfterViewInit {
   @ViewChild('chartDoughnutCanvas')
   chartDoughnutCanvas!: ElementRef<HTMLCanvasElement>;
 
-  monat: number = 0;
   statistischeDaten = inject(StatistischeDataService);
   chart!: Chart;
 
@@ -29,10 +33,11 @@ export class Statistik implements AfterViewInit {
     this.createBarChart();
     this.createLineChart();
     this.createDoughnutChart();
-    this.monat = new Date().getMonth() + 1;
   }
 
-
+  filterNach = 'monat';
+  monate: Array<string> = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+  jahre: Array<number> = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
 
   createBarChart() {
 
