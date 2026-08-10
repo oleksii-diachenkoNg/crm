@@ -1,4 +1,4 @@
 export interface StatistischeDaten { 
-    mounth: string;
+    monat: string;
     profit: number;
 }

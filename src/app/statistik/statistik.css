@@ -1,0 +1,14 @@
+.canvas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.canvas .canvas_content {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+canvas {
+  max-width: 100%;
+}
